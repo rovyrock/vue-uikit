@@ -1,0 +1,65 @@
+@charset "UTF-8";
+/***********************
+模块名：配色参数
+************************/
+/***********************
+design tokens：配色参数
+************************/
+/* Color */
+/* Font */
+/* Size */
+/* Shadow */
+/* Corner */
+/* Line */
+/* Global */
+/***********************
+模块参数：关联design token
+************************/
+/* Icon */
+/**
+* @desc 列表是否存在
+*/
+/**
+* @param $color
+* @param $direction: top bottom left right vertical all radius,  default: all
+*/
+/**
+* @param $color
+* @param $direction: top bottom left right vertical all radius,  default: all
+* @param $pseudo: after before, default: after
+* @param $radius default: 1px
+*/
+/**
+* onePx using background-image linear-gradient
+* @param $color
+* @param $direction: top bottom left right vertical all radius,  default: all
+*/
+/* Badge */
+.mwe-badge {
+  display: inline-block;
+  height: 1rem;
+  background-color: #f52d2c;
+  border-radius: 1rem;
+  color: #fff;
+  line-height: 1rem;
+  font-size: 0.75rem;
+  text-align: center;
+  padding: 0 0.25rem;
+  background-clip: padding-box;
+  vertical-align: middle; }
+  .mwe-badge--single {
+    width: 1rem;
+    padding: 0;
+    box-sizing: border-box; }
+  .mwe-badge--border {
+    border: 0.0625rem solid #fff;
+    line-height: 0.875rem; }
+  .mwe-badge--dot {
+    padding: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    font-size: 0;
+    border-radius: 50%;
+    box-sizing: border-box; }
+
+/*# sourceMappingURL=../../scss/source-maps/components/badge.css.map */

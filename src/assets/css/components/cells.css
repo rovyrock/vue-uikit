@@ -1,0 +1,60 @@
+@charset "UTF-8";
+/***********************
+模块名：配色参数
+************************/
+/***********************
+design tokens：配色参数
+************************/
+/* Color */
+/* Font */
+/* Size */
+/* Shadow */
+/* Corner */
+/* Line */
+/* Global */
+/**
+* @desc 列表是否存在
+*/
+/**
+* @param $color
+* @param $direction: top bottom left right vertical all radius,  default: all
+*/
+/**
+* @param $color
+* @param $direction: top bottom left right vertical all radius,  default: all
+* @param $pseudo: after before, default: after
+* @param $radius default: 1px
+*/
+/**
+* onePx using background-image linear-gradient
+* @param $color
+* @param $direction: top bottom left right vertical all radius,  default: all
+*/
+/* Cells */
+.mwe-cells-hd {
+  padding: 0.75rem 0;
+  color: #333;
+  font-size: 1rem;
+  text-align: left; }
+
+.mwe-cells-bd {
+  background-color: #fff;
+  border: none;
+  background-size: 100% 1px, 1px 100%, 100% 1px, 1px 100%;
+  background-repeat: no-repeat;
+  background-position: top, right, bottom, left;
+  background-image: linear-gradient(#e2e5f0, #e2e5f0), linear-gradient(90deg, #e2e5f0, #e2e5f0 100%), linear-gradient(#e2e5f0, #e2e5f0), linear-gradient(90deg, #e2e5f0, #e2e5f0 100%); }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    .mwe-cells-bd {
+      background-image: linear-gradient(180deg, #e2e5f0, #e2e5f0 50%, transparent 50%), linear-gradient(90deg, transparent, transparent 50%, #e2e5f0 50%), linear-gradient(0deg, #e2e5f0, #e2e5f0 50%, transparent 50%), linear-gradient(270deg, transparent, transparent 50%, #e2e5f0 50%); } }
+
+.mwe-cells-ft {
+  padding: 0.5rem 0;
+  color: #666;
+  font-size: 0.875rem; }
+
+.mwe-cells .mwe-cell {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem; }
+
+/*# sourceMappingURL=../../scss/source-maps/components/cells.css.map */

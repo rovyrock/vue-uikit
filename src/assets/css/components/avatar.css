@@ -1,0 +1,113 @@
+@charset "UTF-8";
+/***********************
+模块名：配色参数
+************************/
+/***********************
+design tokens：配色参数
+************************/
+/* Color */
+/* Font */
+/* Size */
+/* Shadow */
+/* Corner */
+/* Line */
+/* Global */
+/**
+* @desc 列表是否存在
+*/
+/**
+* @param $color
+* @param $direction: top bottom left right vertical all radius,  default: all
+*/
+/**
+* @param $color
+* @param $direction: top bottom left right vertical all radius,  default: all
+* @param $pseudo: after before, default: after
+* @param $radius default: 1px
+*/
+/**
+* onePx using background-image linear-gradient
+* @param $color
+* @param $direction: top bottom left right vertical all radius,  default: all
+*/
+.mwe-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  position: relative;
+  cursor: pointer; }
+  .mwe-avatar-pic {
+    display: block;
+    width: 100%;
+    height: 100%; }
+  .mwe-avatar-edit {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.25rem;
+    line-height: 1.25rem;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.8);
+    font-size: 0.75rem; }
+  .mwe-avatar-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 1rem;
+    height: 1rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 50%;
+    font-size: 0.75rem;
+    color: #fff;
+    line-height: 1rem;
+    text-align: center;
+    vertical-align: middle; }
+    .mwe-avatar-icon.mwe-icon {
+      line-height: 1rem; }
+  .mwe-avatar-status {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    font-size: 0;
+    border-radius: 50%;
+    border: 0.0625rem solid #fff; }
+  .mwe-avatar--square {
+    border-radius: 0; }
+    .mwe-avatar--square .mwe-avatar-pic {
+      border-radius: 0; }
+  .mwe-avatar--circle {
+    border-radius: 50%; }
+    .mwe-avatar--circle .mwe-avatar-pic {
+      border-radius: 50%; }
+  .mwe-avatar--offline .mwe-avatar-status {
+    display: block;
+    background-color: #b9b9b9; }
+  .mwe-avatar--online .mwe-avatar-status {
+    display: block;
+    background-color: #00caa0; }
+  .mwe-avatar--ongame .mwe-avatar-status {
+    display: block;
+    background-color: #ffca4c; }
+  .mwe-avatar--border {
+    border: 0.125rem solid #fff; }
+  .mwe-avatar--l {
+    width: 3.75rem;
+    height: 3.75rem; }
+    .mwe-avatar--l.mwe-avatar--border {
+      border: 0.25rem solid #fff; }
+  .mwe-avatar--s {
+    width: 1.5rem;
+    height: 1.5rem; }
+    .mwe-avatar--s.mwe-avatar--border {
+      border: 0.125rem solid #fff; }
+  .mwe-avatar--edit {
+    overflow: hidden; }
+    .mwe-avatar--edit .mwe-avatar-edit {
+      display: block; }
+
+/*# sourceMappingURL=../../scss/source-maps/components/avatar.css.map */

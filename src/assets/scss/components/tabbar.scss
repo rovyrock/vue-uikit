@@ -1,0 +1,69 @@
+@import "../variable.scss";
+@import "../mixin.scss";
+
+
+/* Tabbar */
+$tabbar-prefix: '.' + $css-prefix + 'tabbar';
+$tabbar-bg-color            : $color-white !default;
+$tabbar-height              : $s-1*15 !default;
+$tabbar-padding             : 0 !default;
+$tabbar-border-color        : $color-line-1 !default;
+$tabbar-border-width        : $line-1 !default;
+$tabbar-item-bg-color       : $color-transparent !default;
+$tabbar-item-bg-color-active: $color-fill-4 !default;
+$tabbar-label-color         : $color-text-1 !default;
+$tabbar-label-color-active  : $color-brand1 !default;
+$tabbar-label-font-size     : $font-size-s !default;
+$tabbar-icon-size           : $s-1*6 !default;
+$tabbar-sup-top             : -$s-1*1 !default;
+$tabbar-sup-right           : -$s-1*2 !default;
+
+#{$tabbar-prefix}{
+  position: relative;
+  width:100%;
+  padding:$tabbar-padding;
+  height:$tabbar-height;
+  background-color: $tabbar-bg-color;
+  @include onePx($tabbar-border-color,top);
+  @include align-flex();
+  @include align-flex-middle();
+  &-item{
+    height:100%;
+    flex:1;
+    @include align-flex();
+    @include align-flex-center();
+    @include align-flex-middle();
+    flex-direction:column;
+    //background-color:$tabbar-item-bg-color;
+    &--active{
+      //background-color:$tabbar-item-bg-color-active;
+      #{$tabbar-prefix}-label{
+        color:$tabbar-label-color-active;
+      }
+    }
+  }
+  &-icon{
+    width:$tabbar-icon-size;
+    height:$tabbar-icon-size;
+    position: relative;
+    & > img{
+      width:100%;
+      //height:100%;
+    }
+    & > sup{
+      position: absolute;
+      top:$tabbar-sup-top;
+      right:$tabbar-sup-right;
+      line-height:1;
+    }
+  }
+  &-label{
+    color:$tabbar-label-color;
+    font-size:$tabbar-label-font-size;
+  }
+  &--fixed{
+    position:fixed;
+    bottom:0;
+    left:0;
+  }
+}

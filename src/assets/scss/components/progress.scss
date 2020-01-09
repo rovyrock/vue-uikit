@@ -1,0 +1,127 @@
+
+@import "../variable.scss";
+@import "../mixin.scss";
+
+
+/* Progress */
+$progress-prefix             : '.' + $css-prefix + 'progress';
+$progress-bar-wraper-bg-color: $color-fill-4 !default;
+$progress-bar-height         : 2*$s-1 !default;
+$progress-bar-height-l       : 3*$s-1 !default;
+$progress-bar-height-s       : $s-1 !default;
+$progress-bar-corner         : $progress-bar-height !default;
+$progress-bar-corner-l       : $progress-bar-height-l !default;
+$progress-bar-corner-s       : $progress-bar-height-s !default;
+$progress-bar-inner-bg-color : $color-brand1 !default;
+$progress-text-color         : $color-text-1 !default;
+$progress-text-color-current : $color-brand1 !default;
+$progress-text-color-total   : $color-text-1 !default;
+$progress-text-font-size     : $font-size-base !default;
+$progress-text-margin        : 2*$s-1 !default;
+
+$progress-circle-width:25*$s-1 !default;
+$progress-circle-width-s:15*$s-1 !default;
+$progress-circle-width-l:40*$s-1 !default;
+$progress-circle-underlay-color:$color-fill-4 !default;
+$progress-circle-overlay-color:$color-brand1 !default;
+
+#{$progress-prefix}{
+    width:100%;
+    + #{$progress-prefix} {
+      //margin-top: $s-1*5;
+    }
+    &-bar{
+      @include align-flex();
+      @include align-flex-middle();
+      //height:$progress-bar-height;
+      &-wraper{
+        flex:1;
+          position: relative;
+          width:100%;
+          height:$progress-bar-height;
+          background-color:$progress-bar-wraper-bg-color;
+          border-radius:$progress-bar-corner;
+          line-height:1;
+      }
+      &-inner{
+          position: absolute;
+          top:0;
+          left:0;
+          width:0;
+          height:100%;
+          background-color:$progress-bar-inner-bg-color;
+          border-radius:$progress-bar-corner;
+          line-height:1;
+      }
+      &-text{
+        color:$progress-text-color;
+        font-size:$progress-text-font-size;
+        margin-left:$progress-text-margin;
+        
+      }
+      &-texttotal{
+          color: $progress-text-color-total;
+      }
+      &-textcurrent{
+          color:$progress-text-color-current;
+      }
+    }
+    &-circle{
+      position: relative;
+      @include align-flex();
+      @include align-flex-middle();
+      @include align-flex-center();
+      width:$progress-circle-width;
+      height:$progress-circle-width;
+      &-wraper{
+        position:absolute;
+        top:0;
+        left:0;
+      }
+      &-overlay{
+        stroke:$progress-circle-overlay-color;
+      }
+      &-underlay{
+        stroke:$progress-circle-underlay-color;
+      }
+      &-text{
+        position: relative;
+      }
+    }
+    &--s{
+      #{$progress-prefix}{
+        &-bar{
+          &-wraper{
+            height:$progress-bar-height-s;
+            border-radius:$progress-bar-corner-s;
+          }
+          &-inner{
+            border-radius:$progress-bar-corner-s;
+          }
+        }
+        &-circle{
+          width:$progress-circle-width-s;
+          height:$progress-circle-width-s;
+        }
+        
+      }
+    }
+    &--l{
+      #{$progress-prefix}{
+        &-bar{
+          &-wraper{
+            height:$progress-bar-height-l;
+            border-radius:$progress-bar-corner-l;
+          }
+          &-inner{
+            border-radius:$progress-bar-corner-l;
+          }
+        }
+        
+        &-circle{
+          width:$progress-circle-width-l;
+          height:$progress-circle-width-l;
+        }
+      }
+    }
+}

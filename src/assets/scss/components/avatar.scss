@@ -1,0 +1,144 @@
+@charset "UTF-8";
+@import "../variable.scss";
+@import "../mixin.scss";
+
+$avatar-prefix        : '.' + $css-prefix + 'avatar';
+$avatar-corner        : $corner-circle !default;
+$avatar-border-color  : $color-white !default;
+$avatar-size          : $s-1*10 !default;
+$avatar-border-width  : $s-1/2 !default;
+$avatar-size-l        : 15*$s-1 !default;
+$avatar-border-width-l: $s-1 !default;
+$avatar-size-s        : 6*$s-1 !default;
+$avatar-border-width-s: $s-1/2 !default;
+
+$avatar-edit-height   : 5*$s-1 !default;
+$avatar-edit-bg-color : rgba($color-black,0.8) !default;
+$avatar-edit-color    : $color-white !default;
+$avatar-edit-font-size: $font-size-s !default;
+$avatar-icon-size     : 4*$s-1 !default;
+$avatar-icon-corner   : $corner-circle !default;
+$avatar-icon-bg-color : rgba($color-black,0.8) !default;
+$avatar-icon-color    : $color-white !default;
+$avatar-icon-font-size: $font-size-s !default;
+
+$avatar-status-size            : 2*$s-1 !default;
+$avatar-status-corner          : $corner-circle !default;
+$avatar-status-bg-color-online : $color-success !default;
+$avatar-status-bg-color-ongame : $color-warning !default;
+$avatar-status-bg-color-offline: $color-fill-2 !default;
+$avatar-status-border-color    : $color-white !default;
+$avatar-status-border-width    : $line-1 !default;
+
+#{$avatar-prefix}{
+  width:$avatar-size;
+  height:$avatar-size;
+  //border-radius:$avatar-corner;
+  position: relative;
+  cursor: pointer;
+  
+  &-pic{
+    display:block;
+    width:100%;
+    height:100%;
+    //border-radius:$avatar-corner;
+  }
+  &-edit{
+    display:none;
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:$avatar-edit-height;
+    line-height:$avatar-edit-height;
+    text-align:center;
+    color:$avatar-edit-color;
+    background-color:$avatar-edit-bg-color;
+    font-size:$avatar-edit-font-size;
+  }
+  &-icon{
+    position: absolute;
+    bottom:0;
+    right:0;
+    width:$avatar-icon-size;
+    height:$avatar-icon-size;
+    background-color:$avatar-icon-bg-color;
+    border-radius:$avatar-icon-corner;
+    font-size:$avatar-icon-font-size;
+    color:$avatar-icon-color;
+    line-height:$avatar-icon-size;
+    text-align:center;
+    vertical-align: middle;
+    &#{$class-prefix}-icon{
+      line-height:$avatar-icon-size;
+    }
+  }
+  &-status{
+    display:none;
+    position: absolute;
+    bottom:0;
+    right:0;
+    width:$avatar-status-size;
+    height:$avatar-status-size;
+    font-size:0;
+    border-radius:$avatar-status-corner;
+    border:$avatar-status-border-width solid $avatar-status-border-color;
+  }
+  &--square{
+    border-radius:0;
+    #{$avatar-prefix}-pic{
+      border-radius:0;
+    }
+  }
+  &--circle{
+    border-radius:$avatar-corner;
+    #{$avatar-prefix}-pic{
+      border-radius:$avatar-corner;
+    }
+  }
+  &--offline{
+    #{$avatar-prefix}-status{
+      display:block;
+      background-color:$avatar-status-bg-color-offline;
+    }
+    
+  }
+  &--online{
+    #{$avatar-prefix}-status{
+      display:block;
+      background-color:$avatar-status-bg-color-online;
+    }
+    
+  }
+  &--ongame{
+    #{$avatar-prefix}-status{
+      display:block;
+      background-color:$avatar-status-bg-color-ongame;
+    }
+    
+  }
+  &--border{
+    border:$avatar-border-width solid $avatar-border-color;
+  }
+  &--l{
+    width:$avatar-size-l;
+    height:$avatar-size-l;
+    &#{$avatar-prefix}--border{
+      border:$avatar-border-width-l solid $avatar-border-color;
+    }
+  }
+  &--s{
+    width:$avatar-size-s;
+    height:$avatar-size-s;
+    &#{$avatar-prefix}--border{
+      border:$avatar-border-width-s solid $avatar-border-color;
+    }
+  }
+  &--edit{
+    overflow: hidden;
+    #{$avatar-prefix}-edit{
+      display:block;
+    }
+  }
+  
+}

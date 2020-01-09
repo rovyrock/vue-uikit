@@ -1,0 +1,27 @@
+@import "./variable.scss";
+@import "./mixin.scss";
+@import "./reset.scss";
+@import "./fonticon.scss";
+
+//components
+@import "./components/actionsheet.scss";
+@import "./components/avatar.scss";
+@import "./components/badge.scss";
+@import "./components/button.scss";
+
+@import "./components/cell.scss";
+@import "./components/cellchecklist.scss";
+@import "./components/cells.scss";
+
+@import "./components/flexbox.scss";
+
+@import "./components/icon.scss";
+@import "./components/picker.scss";
+@import "./components/popbox.scss";
+@import "./components/progress.scss";
+@import "./components/radio.scss";
+@import "./components/switch.scss";
+@import "./components/swipe.scss";
+@import "./components/tabbar.scss";
+@import "./components/tabnav.scss";
+@import "./components/toast.scss";

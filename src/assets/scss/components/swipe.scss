@@ -1,0 +1,104 @@
+
+@import "../variable.scss";
+@import "../mixin.scss";
+
+
+/* Swipe */
+$swipe-prefix: '.' + $css-prefix + 'swipe';
+$swipe-color              : $color-white !default;
+$swipe-font-size          : $font-size-s !default;
+$swipe-height             : $s-1*4 !default;
+$swipe-padding            : $s-1*1 !default;
+$swipe-border-width       : $line-1 !default;
+$swipe-border-color       : $color-white !default;
+$swipe-dots-padding       : 0 $s-1*5 !default;
+$swipe-dots-height        : $s-1*4 !default;
+$swipe-dot-margin         : 0 $s-1 !default;
+$swipe-dot-corner         : $corner-circle !default;
+$swipe-dot-size           : $s-1*2 !default;
+$swipe-dot-bg-color       : rgba($color-black,0.2) !default;
+$swipe-dot-bg-color-active: $color-brand1 !default;
+$swipe-btn-width          : $s-1*5 !default;
+$swipe-btn-height         : $s-1*10 !default;
+$swipe-btn-bg-color       : rgba($color-black,0.6) !default;
+$swipe-btn-color          : $color-white !default;
+
+#{$swipe-prefix}{
+  position: relative;
+  //width:100%;
+  //height:100%;
+  overflow: hidden;
+  &-wrap{
+    //position: relative;
+    height:100%;
+    //@include align-flex();
+    display:flex;
+    flex-direction:row;
+  }
+  &-item{
+    /*
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;*/
+    &,&-copy{
+      width: 100%;
+      height: 100%;
+      flex: none;
+    }
+    
+  }
+  &-dots{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:$swipe-dots-height;
+    padding:$swipe-dots-padding;
+    @include align-flex();
+    @include align-flex-middle();
+    &--center{
+      @include align-flex-center();
+    }
+    &--left{
+      @include align-flex-start();
+    }
+    &--right{
+      @include align-flex-end();
+    }
+  }
+  &-dot{
+    display:block;
+    width:$swipe-dot-size;
+    height: $swipe-dot-size;
+    margin:$swipe-dot-margin;
+    border-radius: $swipe-dot-corner;
+    background-color: $swipe-dot-bg-color;
+    &--active,&.active{
+      background-color: $swipe-dot-bg-color-active;
+    }
+  }
+  &-prev,&-next{
+    width:$swipe-btn-width;
+    height:$swipe-btn-height;
+    background-color:$swipe-btn-bg-color;
+    @include align-flex();
+    @include align-flex-middle();
+    @include align-flex-center();
+    position: absolute;
+    top:50%;
+    margin-top:-$swipe-btn-height/2;
+    cursor: pointer;
+    i{
+      color:$swipe-btn-color;
+    }
+  }
+  &-prev{
+    left:0
+  }
+  &-next{
+    right:0
+  }
+  
+}

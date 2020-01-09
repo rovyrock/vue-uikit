@@ -1,0 +1,67 @@
+@charset "UTF-8";
+/***********************
+模块名：配色参数
+************************/
+/***********************
+design tokens：配色参数
+************************/
+/* Color */
+/* Font */
+/* Size */
+/* Shadow */
+/* Corner */
+/* Line */
+/* Global */
+/***********************
+模块参数：关联design token
+************************/
+/* Icon */
+/**
+* @desc 列表是否存在
+*/
+/**
+* @param $color
+* @param $direction: top bottom left right vertical all radius,  default: all
+*/
+/**
+* @param $color
+* @param $direction: top bottom left right vertical all radius,  default: all
+* @param $pseudo: after before, default: after
+* @param $radius default: 1px
+*/
+/**
+* onePx using background-image linear-gradient
+* @param $color
+* @param $direction: top bottom left right vertical all radius,  default: all
+*/
+/* flexbox */
+.mwe-flexbox {
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  display: flex;
+  box-align: center;
+  align-items: center; }
+  .mwe-flexbox-container {
+    flex: 1 1 100%;
+    margin: auto;
+    width: 100%;
+    max-width: 100%; }
+  .mwe-flexbox-item {
+    flex: 1;
+    min-width: 20px;
+    width: 0%; }
+    .mwe-flexbox-item:first-child {
+      margin-left: 0 !important;
+      margin-top: 0 !important; }
+  .mwe-flexbox--row {
+    box-direction: row;
+    box-orient: horizontal;
+    flex-direction: row; }
+  .mwe-flexbox--col {
+    box-orient: vertical;
+    flex-direction: column; }
+    .mwe-flexbox--col > .mwe-flexbox-item {
+      width: 100%; }
+
+/*# sourceMappingURL=../../scss/source-maps/components/flexbox.css.map */

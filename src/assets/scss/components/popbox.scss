@@ -1,0 +1,233 @@
+
+@import "../variable.scss";
+@import "../mixin.scss";
+
+
+/* Popbox */
+$popbox-prefix               : '.' + $css-prefix + 'popbox';
+$popbox-width                : 80*$s-1 !default;//80%;
+$popbox-min-width            : 50*$s-1 !default;//50%;
+$popbox-max-width            : 80*$s-1 !default;//80%;
+$popbox-padding              : 0 !default;
+$popbox-bg-color             : $color-white !default;
+$popbox-font-size            : $font-size-base !default;
+$popbox-color                : $color-text-1 !default;
+$popbox-corner               : $corner-1 !default;
+$popbox-border-color         : $color-transparent !default;
+$popbox-border-width         : $line-0 !default;
+$popbox-title-font-size      : $font-size-l !default;
+$popbox-title-color          : $color-text-1 !default;
+$popbox-title-margin         : $s-1*9 $s-1*5 0 !default;
+$popbox-content-font-size    : $font-size-base !default;
+$popbox-content-color        : $color-text-2 !default;
+$popbox-button-height        : $s-1*10 !default;
+$popbox-button-font-size     : $font-size-base !default;
+$popbox-button-margin        : 0 !default;
+$popbox-button-border-color  : $color-line-1 !default;
+$popbox-button-color         : $color-text-2 !default;
+$popbox-button-color-primary : $color-brand1 !default;
+$popbox-button-bg-color:$color-transparent !default;
+$popbox-button-bg-color-active:rgba($color-black,.06) !default;
+
+$popbox-hd-bg-color          : $color-transparent !default;
+$popbox-hd-border-color      : $color-transparent !default;
+$popbox-hd-border-width      : $line-0 !default;
+$popbox-bd-margin            : $s-1*4 $scrollbar-margin $s-1*5 !default;
+$popbox-bd-bg-color          : $color-white !default;
+$popbox-content-max-height   : $s-1*50 !default;
+$popbox-content-padding      : 0 $s-1*5 !default;
+$popbox-ft-margin            : 0 !default;
+$popbox-ft-bg-color          : $color-transparent !default;
+$popbox-ft-border-color      : $color-transparent !default;
+$popbox-ft-border-width      : $line-0 !default;
+$popbox-close-size           : $s-1*5 !default;
+$popbox-close-font-size      : $font-size-base !default;
+$popbox-close-color          : $color-text !default;
+$popbox-close-color-hover    : $color-white !default;
+$popbox-close-color-active   : $color-white !default;
+$popbox-close-bg-color       : $color-transparent !default;
+$popbox-close-bg-color-hover : rgba($color-black,0.2) !default;
+$popbox-close-bg-color-active: rgba($color-black,0.3) !default;
+$popbox-close-corner         : $corner-circle !default;
+$popbox-close-top            : $s-1*2 !default;
+$popbox-close-right          : $s-1*2 !default;
+$popbox-mask-bg-color        : rgba($color-black,0.6) !default;
+$popbox-z-index              : 1001 !default;
+
+$popbox-button-padding-android: 0 $s-1*4 !default;
+$popbox-ft-padding-android: 0 $s-1*4 !default;
+#{$popbox-prefix}{
+  position: absolute;
+  z-index:$popbox-z-index;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin:auto;
+  display: table;
+  width:$popbox-width;
+  padding: $popbox-padding;
+  border: $popbox-border-width solid $popbox-border-color;
+  border-radius: $popbox-corner;
+  background-color: $popbox-bg-color;
+  color:$popbox-color;
+  text-align:center;
+  
+  &-mask{
+    position: fixed;
+    z-index: $popbox-z-index;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color:$popbox-mask-bg-color;
+  }
+  &-wrap{
+    position: fixed;
+    z-index: $popbox-z-index;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+  }
+  &-close{
+    position: absolute;
+    top:$popbox-close-top;
+    right:$popbox-close-right;
+    width:$popbox-close-size;
+    height:$popbox-close-size;
+    text-align:center;
+    color:$popbox-close-color;
+    font-size:$popbox-close-font-size;
+    line-height:$popbox-close-size;
+    background-color:$popbox-close-bg-color;
+    border-radius:$popbox-close-corner;
+    &:active{
+      color:$popbox-close-color-active;
+      background-color:$popbox-close-bg-color-active;
+    }
+  }
+  &-hd{
+    border-bottom:$popbox-hd-border-width solid $popbox-hd-border-color;
+    background-color: $popbox-hd-bg-color;
+    border-radius: $popbox-corner $popbox-corner 0 0;
+  }
+  &-bd{
+    padding: $popbox-bd-margin;
+    font-size:$popbox-font-size;
+    background-color: $popbox-bd-bg-color;
+  }
+  &-ft{
+    padding:$popbox-ft-margin;
+    border-top:$popbox-ft-border-width solid $popbox-ft-border-color;
+    background-color: $popbox-ft-bg-color;
+    border-radius: 0 0 $popbox-corner $popbox-corner;
+    overflow: hidden;
+    @include align-flex();
+    @include align-flex-middle();
+  }
+  &-title{
+    font-size: $popbox-title-font-size;
+    line-height: $popbox-title-font-size;
+    padding:$popbox-title-margin;
+    color:$popbox-title-color;
+  }
+  &-content{
+    padding:$popbox-content-padding;
+    font-size: $popbox-content-font-size;
+    color:$popbox-content-color;
+    max-height:$popbox-content-max-height;
+    overflow-y: auto;
+    word-break: break-all;
+  }
+  &-button{
+    flex:1;
+    height:$popbox-button-height;
+    line-height:$popbox-button-height;
+    color:$popbox-button-color;
+    text-align:center;
+    background-color:$popbox-button-bg-color;
+    display: inline-block;
+    &:active{
+      background-color:$popbox-button-bg-color-active;
+    }
+
+    @include onePx($popbox-button-border-color,topleft);
+    //@include onePx($popbox-button-border-color,left);
+    &:first-child{
+      //border-left: none;
+      @include onePx($popbox-button-border-color,top);
+    }
+    &:last-child{
+      border-left: none;
+    }
+    &--primary{
+      color:$popbox-button-color-primary;
+    }
+  }
+
+  &--center{
+    //top: 50%;
+    //left:50%;
+    //transform: translateX(-50%) translateY(-50%);
+  }
+  &--nobutton{
+    #{$popbox-prefix}-bd{
+      border-radius: 0 0 $popbox-corner $popbox-corner;
+    }
+  }
+  &--android{
+    #{$popbox-prefix}-title{
+      text-align:left;
+    }
+    #{$popbox-prefix}-content{
+      text-align:left;
+    }
+    #{$popbox-prefix}-ft{
+      display: block;
+      padding:$popbox-ft-padding-android;
+      text-align:right;
+    }
+    #{$popbox-prefix}-button{
+      padding:$popbox-button-padding-android;
+      background-image:none;
+    }
+  }
+}
+
+//动画部分
+
+
+.popbox-enter-active {
+  animation: popbox-in .5s;
+}
+.popbox-leave-active {
+  animation: popbox-out .3s;
+}
+@keyframes popbox-in {
+  0% {
+    transform: scale(1.185);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes popbox-out {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+}
+.mask-enter, .mask-leave-active {
+  opacity: 0;
+}
+.mask-leave-active, .mask-enter-active {
+  transition: opacity 300ms;
+}

@@ -1,0 +1,211 @@
+
+@import "../variable.scss";
+@import "../mixin.scss";
+
+
+/* Picker + Scroller */
+$picker-prefix                : '.' + $css-prefix + 'picker';
+$picker-mask-bg-color: rgba($color-black,0.6) !default;
+$picker-wrap-bg-color: $color-transparent !default;
+$picker-wrap-corner  : $corner-0 !default;
+$picker-wrap-margin  : 0 !default;
+
+$picker-hd-height        : $s-1*12 !default;
+$picker-hd-padding       : 0 $s-1*5 !default;
+$picker-hd-border-color  : $color-line-1 !default;
+$picker-hd-border-width  : $line-1 !default;
+$picker-hd-bg-color      : $color-fill-4 !default;
+$picker-title-color      : $color-text-1 !default;
+$picker-title-font-size  : $font-size-l !default;
+$picker-cancel-color     : $color-text-1 !default;
+$picker-cancel-font-size : $font-size-base !default;
+$picker-confirm-color    : $color-text-1 !default;
+$picker-confirm-font-size: $font-size-base !default;
+
+$picker-bd-padding            : $s-1 0 !default;
+$picker-bd-bg-color           : $color-white !default;
+$picker-item-height           : $s-1*10 !default;
+$picker-item-font-size        : $font-size-base !default;
+$picker-item-color            : $color-text-1 !default;
+$picker-group-wrap-height     : $picker-item-height*5 !default;
+$picker-indicator-height      : $picker-item-height !default;
+$picker-indicator-border-color: $color-line-1 !default;
+$picker-indicator-top         : ($picker-group-wrap-height - $picker-indicator-height)/2 !default;
+
+#{$picker-prefix}{
+  opacity:0;
+  &-mask{
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color:$picker-mask-bg-color;
+  }
+  &-wrap{
+    position: fixed;
+    left: $picker-wrap-margin;
+    right: $picker-wrap-margin;
+    bottom: 0;
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    z-index: 1001;
+    background-color: $picker-wrap-bg-color;
+    border-radius:$picker-wrap-corner;
+    -webkit-transition: -webkit-transform .3s;
+    transition: -webkit-transform .3s;
+    transition: transform .3s;
+    transition: transform .3s,-webkit-transform .3s;
+  }
+  &-hd{
+    height:$picker-hd-height;
+    padding:$picker-hd-padding;
+    background-color:$picker-hd-bg-color;
+    @include onePx($picker-hd-border-color,bottom);
+    @include align-flex();
+    @include align-flex-middle();
+    @include align-flex-space-between();
+  }
+  &-title{
+    color:$picker-title-color;
+    font-size:$picker-title-font-size;
+  }
+  &-cancel{
+    color:$picker-cancel-color;
+    font-size:$picker-cancel-font-size;
+  }
+  &-confirm{
+    color:$picker-confirm-color;
+    font-size:$picker-confirm-font-size;
+  }
+  &-bd{
+    @include align-flex();
+    padding:$picker-bd-padding;
+    background-color:$picker-bd-bg-color;
+    position: relative;
+  }
+  &-group{
+    flex:1;
+    &-wrap{
+      display: block;
+      position: relative;
+      height: $picker-group-wrap-height;
+      overflow: hidden;
+      width: 100%;
+    }
+    /*
+    &-mask{
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      margin: 0 auto;
+      width: 100%;
+      z-index: 3;
+      transform: translateZ(0px);
+      background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.95), rgba(255,255,255,0.6)), -webkit-linear-gradient(bottom, rgba(255,255,255,0.95), rgba(255,255,255,0.6));
+      background-image: linear-gradient(to bottom, rgba(255,255,255,0.95), rgba(255,255,255,0.6)), linear-gradient(to top, rgba(255,255,255,0.95), rgba(255,255,255,0.6));
+      background-position: top, bottom;
+      background-size: 100% $picker-indicator-top;
+      background-repeat: no-repeat;
+    }
+    &-indicator{
+      width: 100%;
+      height: $picker-indicator-height;
+      position: absolute;
+      left: 0;
+      top: $picker-indicator-top;
+      z-index: 3;
+      @include onePx($picker-indicator-border-color,vertical);
+    }*/
+  }
+  &-content{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+  &-item{
+    height:$picker-item-height;
+    line-height:$picker-item-height;
+    text-align:center;
+    font-size:$picker-item-font-size;
+    color:$picker-item-color;
+  }
+  &--toggle{
+    opacity:1;
+    #{$picker-prefix}-wrap{
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+  }
+}
+//动画
+.picker-mask-enter,
+.picker-mask-leave-active{
+  opacity: 0;
+}
+.picker-mask-leave-active,
+.picker-mask-enter-active{
+  -webkit-transition: opacity 300ms;
+  transition: opacity 300ms;
+}
+
+$scroller-prefix                : '.' + $css-prefix + 'scroller';
+$scroller-item-height           : $s-1*10;
+$scroller-item-font-size        : $font-size-base;
+$scroller-item-color            : $color-text-1;
+$scroller-component-height     : $scroller-item-height*5;
+$scroller-indicator-height      : $scroller-item-height;
+$scroller-indicator-border-color: $color-line-1;
+$scroller-indicator-top         : ($scroller-component-height - $scroller-indicator-height)/2;
+#{$scroller-prefix}{
+  &-component{
+    display: block;
+    position: relative;
+    height: $scroller-component-height;
+    overflow: hidden;
+    width: 100%;
+  }
+  &-mask{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    margin: 0 auto;
+    width: 100%;
+    z-index: 3;
+    transform: translateZ(0px);
+    background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.95), rgba(255,255,255,0.6)), -webkit-linear-gradient(bottom, rgba(255,255,255,0.95), rgba(255,255,255,0.6));
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.95), rgba(255,255,255,0.6)), linear-gradient(to top, rgba(255,255,255,0.95), rgba(255,255,255,0.6));
+    background-position: top, bottom;
+    background-size: 100% $scroller-indicator-top;
+    background-repeat: no-repeat;
+  }
+  &-indicator{
+    width: 100%;
+    height: $scroller-indicator-height;
+    position: absolute;
+    left: 0;
+    top: $scroller-indicator-top;
+    z-index: 3;
+    @include onePx($scroller-indicator-border-color,vertical);
+  }
+  &-content{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+  &-item{
+    text-align: center;
+    font-size: $scroller-item-font-size;
+    height: $scroller-item-height;
+    line-height: $scroller-item-height;
+    color: $scroller-item-color;
+  }
+}

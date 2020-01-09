@@ -1,0 +1,45 @@
+
+@import "../variable.scss";
+@import "../mixin.scss";
+
+
+/* flexbox */
+$flexbox-prefix: '.' + $css-prefix + 'flexbox';
+
+
+#{$flexbox-prefix}{
+  //width: 100%;
+  padding:0;
+  margin:0;
+  text-align: left;
+  display: flex;
+  box-align: center;
+  align-items: center;
+  &-container{
+    flex: 1 1 100%;
+    margin: auto;
+    width: 100%;
+    max-width:100%;
+  }
+  &-item{
+    flex: 1;
+    min-width: 20px;
+    width: 0%;
+    &:first-child {
+      margin-left: 0!important;
+      margin-top: 0!important;
+    }
+  }
+  &--row{
+    box-direction: row;
+    box-orient: horizontal;
+    flex-direction: row;
+  }
+  &--col{
+    box-orient: vertical;
+    flex-direction: column;
+    > #{$flexbox-prefix}-item{
+      width:100%
+    }
+  }
+}

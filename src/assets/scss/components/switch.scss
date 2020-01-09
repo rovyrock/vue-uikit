@@ -1,0 +1,169 @@
+
+@import "../variable.scss";
+@import "../mixin.scss";
+/* Switch */
+
+
+/// mixin for setting switch size
+@mixin switch-size($prefix,$height,$circle-width, $border-width, $text-font-size,$text-padding ) {
+  height: $height;
+  border-width: $border-width;
+  
+  #{$prefix}-text{
+    font-size:$text-font-size;
+    line-height: $height - 2 * $border-width;
+    padding-left: $circle-width + $text-padding;
+    padding-right: $text-padding;
+  }
+  
+  &#{$prefix}{
+    &::after{
+      width:$circle-width;
+      height:$circle-width;
+      margin-top:- $circle-width/2;
+      // top: ($height - $border-width*2 - $circle-width)/2;
+      // left: ($height - $border-width*2 - $circle-width)/2;
+    }
+  }
+}
+
+/* Switch */
+$switch-prefix                  : '.' + $css-prefix + 'switch';
+$switch-transition              : all .3s !default;
+$switch-height                  : 6*$s-1 !default;
+$switch-min-width               : 10*$s-1 !default;
+$switch-corner                  : $switch-height !default;
+$switch-border-width            : $line-1 !default;
+$switch-border-color            : $color-line-1 !default;
+$switch-border-color-checked    : $color-brand1 !default;
+$switch-border-color-disabled   : $color-line-4 !default;
+$switch-bg-color                : $color-fill-1 !default;
+$switch-bg-color-checked        : $color-brand1 !default;
+$switch-bg-color-disabled       : $color-fill-4 !default;
+$switch-circle-width            : 5*$s-1 !default;
+$switch-circle-top              : ($switch-height - $switch-border-width*2 - $switch-circle-width)/2 !default;
+$switch-circle-corner           : $corner-circle !default;
+$switch-circle-bg-color         : $color-white !default;
+$switch-circle-bg-color-checked : $color-white !default;
+$switch-circle-bg-color-disabled: $color-fill-3 !default;
+$switch-text-padding            : 1.5*$s-1 !default;
+$switch-text-font-size          : $font-size-base !default;
+$switch-text-color              : $color-white !default;
+$switch-text-color-disabled     : $color-text-4 !default;
+
+$switch-height-s                : 5*$s-1 !default;
+$switch-circle-width-s          : 4*$s-1 !default;
+$switch-circle-top-s              : ($switch-height-s - $switch-border-width*2 - $switch-circle-width-s)/2 !default;
+$switch-text-padding-s          : $s-1 !default;
+$switch-text-font-size-s        : $font-size-s !default;
+$switch-corner-s                : $switch-height-s !default;
+
+$switch-min-width-l:12*$s-1 !default;
+$switch-height-l                : 8*$s-1 !default;
+$switch-circle-width-l          : 6*$s-1 !default;
+$switch-circle-top-l              : ($switch-height-l - $switch-border-width*2 - $switch-circle-width-l)/2 !default;
+$switch-text-padding-l          : 2*$s-1 !default;
+$switch-text-font-size-l        : $font-size-l !default;
+$switch-corner-l                : $switch-height-l !default;
+
+#{$switch-prefix}{
+    position: relative;
+    display: inline-block;
+    min-width: $switch-min-width;
+    height: $switch-height;
+    border: $switch-border-width solid $switch-border-color;
+    border-radius: $switch-corner;
+    background-color: $switch-bg-color;
+    vertical-align: middle;
+    transition: $switch-transition;
+    user-select: none;
+    cursor: pointer;
+    box-sizing:border-box;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: $switch-circle-top;
+    margin-left:0;
+    // top: $switch-circle-top;
+    top:50%;
+    margin-top:- $switch-circle-width/2;
+    width: $switch-circle-width;
+    height: $switch-circle-width;
+    border-radius: $switch-circle-corner;
+    background-color: $switch-circle-bg-color;
+    transition: all .2s;
+    cursor: pointer;
+  }
+  /* element */
+  &-text {
+    display: block;
+    padding-left: $switch-circle-width + $switch-text-padding;
+    padding-right: $switch-text-padding;
+    color: $switch-text-color;
+    font-size: $switch-text-font-size;
+    line-height: $switch-height - 2*$switch-border-width;
+  }
+  /* modifier */
+  &.checked,&--checked {
+    border-color: $switch-border-color-checked;
+    background-color: $switch-bg-color-checked;
+    &::after {
+      // transform: translateX($switch-min-width - $switch-circle-width - 2*$switch-circle-top);
+      left: 100%;
+      margin-left: -$switch-circle-width - $switch-circle-top;
+    }
+    #{$switch-prefix}-text {
+      padding-left: $switch-text-padding;
+      padding-right: $switch-circle-width + $switch-text-padding;
+    }
+  }
+  &.disabled,&--disabled {
+    border-color: $switch-border-color-disabled;
+    background-color: $switch-bg-color-disabled;
+    cursor: $cursor-disabled;
+    &::after {
+      background-color: $switch-circle-bg-color-disabled;
+      cursor: $cursor-disabled;
+    }
+    #{$switch-prefix}-inner {
+      color: $switch-text-color-disabled;
+    }
+    #{$switch-prefix}-text {
+      color: $switch-text-color-disabled;
+    }
+  }
+
+  &--s{
+    border-radius: $switch-corner-s;
+    @include switch-size($switch-prefix,$switch-height-s,$switch-circle-width-s, $switch-border-width, $switch-text-font-size-s,$switch-text-padding-s);
+    &#{$switch-prefix}.checked,&#{$switch-prefix}--check{
+      &::after{
+        // transform: translateX($switch-min-width - $switch-circle-width-s - 2*$switch-circle-top);
+        margin-left: -$switch-circle-width-s - $switch-circle-top-s;
+      }
+      #{$switch-prefix}-text {
+        padding-left: $switch-text-padding-s;
+        padding-right: $switch-circle-width-s + $switch-text-padding-s;
+      }
+    }
+  }
+  &--l{
+    min-width: $switch-min-width-l;
+    border-radius: $switch-corner-l;
+    @include switch-size($switch-prefix,$switch-height-l,$switch-circle-width-l, $switch-border-width, $switch-text-font-size-l,$switch-text-padding-l);
+    &#{$switch-prefix}--check{
+      &::after {
+        margin-left: -$switch-circle-width-l - $switch-circle-top-l;
+        // transform: translateX($switch-min-width - $switch-circle-width-l - 2*$switch-circle-top);
+      }
+    }
+    &#{$switch-prefix}.checked{
+      &::after {
+        margin-left: -$switch-circle-width-l - $switch-circle-top-l;
+        // transform: translateX($switch-min-width - $switch-circle-width-l - 2*$switch-circle-top);
+      }
+    }
+  }
+}

@@ -1,0 +1,138 @@
+@charset "UTF-8";
+/***********************
+模块名：配色参数
+************************/
+/***********************
+design tokens：配色参数
+************************/
+/* Color */
+/* Font */
+/* Size */
+/* Shadow */
+/* Corner */
+/* Line */
+/* Global */
+/**
+* @desc 列表是否存在
+*/
+/**
+* @param $color
+* @param $direction: top bottom left right vertical all radius,  default: all
+*/
+/**
+* @param $color
+* @param $direction: top bottom left right vertical all radius,  default: all
+* @param $pseudo: after before, default: after
+* @param $radius default: 1px
+*/
+/**
+* onePx using background-image linear-gradient
+* @param $color
+* @param $direction: top bottom left right vertical all radius,  default: all
+*/
+/* Swipe */
+.mwe-swipe {
+  position: relative;
+  overflow: hidden; }
+  .mwe-swipe-wrap {
+    height: 100%;
+    display: flex;
+    flex-direction: row; }
+  .mwe-swipe-item {
+    /*
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;*/ }
+    .mwe-swipe-item, .mwe-swipe-item-copy {
+      width: 100%;
+      height: 100%;
+      flex: none; }
+  .mwe-swipe-dots {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1rem;
+    padding: 0 1.25rem;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    .mwe-swipe-dots:before, .mwe-swipe-dots:after {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex; }
+    .mwe-swipe-dots--center {
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+    .mwe-swipe-dots--left {
+      -webkit-box-pack: start;
+      -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+      justify-content: flex-start; }
+    .mwe-swipe-dots--right {
+      -webkit-box-pack: end;
+      -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+      justify-content: flex-end; }
+  .mwe-swipe-dot {
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin: 0 0.25rem;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.2); }
+    .mwe-swipe-dot--active, .mwe-swipe-dot.active {
+      background-color: #0081ef; }
+  .mwe-swipe-prev, .mwe-swipe-next {
+    width: 1.25rem;
+    height: 2.5rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    margin-top: -1.25rem;
+    cursor: pointer; }
+    .mwe-swipe-prev:before, .mwe-swipe-prev:after, .mwe-swipe-next:before, .mwe-swipe-next:after {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex; }
+    .mwe-swipe-prev i, .mwe-swipe-next i {
+      color: #fff; }
+  .mwe-swipe-prev {
+    left: 0; }
+  .mwe-swipe-next {
+    right: 0; }
+
+/*# sourceMappingURL=../../scss/source-maps/components/swipe.css.map */

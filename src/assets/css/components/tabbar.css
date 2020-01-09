@@ -1,0 +1,117 @@
+@charset "UTF-8";
+/***********************
+模块名：配色参数
+************************/
+/***********************
+design tokens：配色参数
+************************/
+/* Color */
+/* Font */
+/* Size */
+/* Shadow */
+/* Corner */
+/* Line */
+/* Global */
+/***********************
+模块参数：关联design token
+************************/
+/* Icon */
+/**
+* @desc 列表是否存在
+*/
+/**
+* @param $color
+* @param $direction: top bottom left right vertical all radius,  default: all
+*/
+/**
+* @param $color
+* @param $direction: top bottom left right vertical all radius,  default: all
+* @param $pseudo: after before, default: after
+* @param $radius default: 1px
+*/
+/**
+* onePx using background-image linear-gradient
+* @param $color
+* @param $direction: top bottom left right vertical all radius,  default: all
+*/
+/* Tabbar */
+.mwe-tabbar {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  height: 3.75rem;
+  background-color: #fff;
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(#e2e5f0, #e2e5f0);
+  border-top: none;
+  background-position: top;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    .mwe-tabbar {
+      background-image: linear-gradient(180deg, #e2e5f0, #e2e5f0 50%, transparent 50%); } }
+  .mwe-tabbar:before, .mwe-tabbar:after {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
+  .mwe-tabbar-item {
+    height: 100%;
+    flex: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    flex-direction: column; }
+    .mwe-tabbar-item:before, .mwe-tabbar-item:after {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex; }
+    .mwe-tabbar-item--active .mwe-tabbar-label {
+      color: #0081ef; }
+  .mwe-tabbar-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    position: relative; }
+    .mwe-tabbar-icon > img {
+      width: 100%; }
+    .mwe-tabbar-icon > sup {
+      position: absolute;
+      top: -0.25rem;
+      right: -0.5rem;
+      line-height: 1; }
+  .mwe-tabbar-label {
+    color: #333;
+    font-size: 0.75rem; }
+  .mwe-tabbar--fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0; }
+
+/*# sourceMappingURL=../../scss/source-maps/components/tabbar.css.map */

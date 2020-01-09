@@ -1,0 +1,163 @@
+
+@import "../variable.scss";
+@import "../mixin.scss";
+
+/* Toast */
+$toast-prefix                : '.' + $css-prefix + 'toast';
+$toast-position-top-offset   : $s-1*5 !default;
+$toast-position-bottom-offset: $s-1*5 !default;
+$toast-z-index               : 5001 !default;
+$toast-mask-bg-color         : rgba($color-black,0.8) !default;
+$toast-padding               : $s-1*5 !default;
+$toast-min-width             : 60*$s-1 !default;
+$toast-max-width             : 80*$s-1 !default;
+$toast-corner                : $corner-1 !default;
+$toast-border-width          : $line-0 !default;
+$toast-border-color          : $color-line-1 !default;
+$toast-bg-color              : rgba($color-black,0.8) !default;
+$toast-bg-color-warning      : rgba($color-warning-2,0.8) !default;
+$toast-bg-color-error        : rgba($color-error-2,0.8) !default;
+$toast-bg-color-success      : rgba($color-success-2,0.8) !default;
+$toast-color                 : $color-white !default;
+$toast-color-error           : $color-error-4 !default;
+$toast-color-success         : $color-success-4 !default;
+$toast-color-warning         : $color-warning-4 !default;
+$toast-font-size             : $font-size-base !default;
+
+$toast-title-padding            : 0 0 $s-1*3 0 !default;
+$toast-title-font-size          : $font-size-l !default;
+$toast-title-color              : $color-white !default;
+
+$toast-desc-padding            : 0 !default;
+$toast-desc-font-size          : $font-size-base !default;
+$toast-desc-color              : rgba($color-white,0.8) !default;
+
+//toase-close
+$toast-close-size           : $s-1*5 !default;
+$toast-close-font-size      : $font-size-base !default;
+$toast-close-top            : $s-1 !default;
+$toast-close-right          : $s-1 !default;
+$toast-close-color          : rgba($color-white,0.8) !default;
+$toast-close-color-hover    : $color-white !default;
+$toast-close-color-active   : $color-white !default;
+$toast-close-bg-color       : $color-transparent !default;
+$toast-close-bg-color-hover : rgba($color-black,0.2) !default;
+$toast-close-bg-color-active: rgba($color-black,0.3) !default;
+$toast-close-corner         : $corner-circle !default;
+//toast-icon
+
+
+#{$toast-prefix}{
+    
+  position: fixed;
+  z-index:$toast-z-index;
+  display: inline-block;
+  max-width: $toast-max-width;
+  min-width: $toast-min-width;
+  padding: $toast-padding;
+  border: $toast-border-width solid $toast-border-color;
+  border-radius: $toast-corner;
+  background-color: $toast-bg-color;
+  color:$toast-color;
+
+  &-inner{
+    text-align:center;
+  }
+
+
+  /* element */
+  &-desc {
+    padding: $toast-desc-padding;
+    color: $toast-desc-color;
+    font-size: $toast-desc-font-size;
+  }
+  &-title {
+    padding: $toast-title-padding;
+    color: $toast-title-color;
+    font-size: $toast-title-font-size;
+  }
+  &-icon{
+    margin-bottom:$s-1*2;
+  }
+  &-mask{
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color:$toast-mask-bg-color;
+  }
+  &-close{
+    position: absolute;
+    top:$toast-close-top;
+    right:$toast-close-right;
+    width:$toast-close-size;
+    height:$toast-close-size;
+    text-align:center;
+    color:$toast-close-color;
+    font-size:$toast-close-font-size;
+    line-height:$toast-close-size;
+    background-color:$toast-close-bg-color;
+    border-radius:$toast-close-corner;
+    &:active{
+      color:$toast-close-color-active;
+      background-color:$toast-close-bg-color-active;
+    }
+  }
+  //modifier
+  &--top{
+    left:50%;
+    top: $toast-position-top-offset;
+    transform: translateX(-50%);
+  }
+  &--bottom{
+    top: auto;
+    left:50%;
+    bottom: $toast-position-bottom-offset;
+    transform: translateX(-50%);
+  }
+  &--center{
+    top: 50%;
+    left:50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  &--warning{
+    background-color:$toast-bg-color-warning;
+    #{$toast-prefix}-title,#{$toast-prefix}-desc,#{$toast-prefix}-close,#{$toast-prefix}-icon{
+      color:$toast-color-warning;
+    }
+  }
+  &--success{
+    background-color:$toast-bg-color-success;
+    #{$toast-prefix}-title,#{$toast-prefix}-desc,#{$toast-prefix}-close,#{$toast-prefix}-icon{
+      color:$toast-color-success;
+    }
+    #{$toast-prefix}-close{
+      color:$toast-color-success;
+    }
+  }
+  &--error{
+    background-color:$toast-bg-color-error;
+    #{$toast-prefix}-title,#{$toast-prefix}-desc,#{$toast-prefix}-close,#{$toast-prefix}-icon{
+      color:$toast-color-error;
+    }
+  }
+
+}
+
+.toast-slide-from-top-enter, .toast-slide-from-top-leave-active {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-100%)!important;
+}
+.toast-slide-from-bottom-enter, .toast-slide-from-bottom-leave-active {
+  opacity: 0;
+  transform: translateX(-50%) translateY(100%)!important;
+}
+.toast-slide-from-top-enter-active,
+.toast-slide-from-top-leave-active,
+.toast-slide-from-bottom-enter-active,
+.toast-slide-from-bottom-leave-active {
+  transition: all 400ms cubic-bezier(.36,.66,.04,1);
+}

@@ -1,0 +1,132 @@
+
+@import "../variable.scss";
+@import "../mixin.scss";
+
+
+/* Actionsheet */
+$actionsheet-prefix                : '.' + $css-prefix + 'actionsheet';
+$actionsheet-mask-bg-color         : rgba($color-black,0.6) !default;
+$actionsheet-wrap-bg-color         : $color-transparent !default;
+$actionsheet-wrap-corner           : $corner-1 !default;
+$actionsheet-wrap-margin           : $s-1*2 !default;
+$actionsheet-cell-height           : $s-1*6 !default;
+$actionsheet-cell-padding          : $s-1*4 0 !default;
+$actionsheet-cell-corner           : $corner-1 !default;
+$actionsheet-cell-color            : $color-text-1 !default;
+$actionsheet-cell-color-primary    : $color-brand1 !default;
+$actionsheet-cell-color-warning    : $color-warning-1 !default;
+$actionsheet-cell-color-disabled   : $color-text-4 !default;
+$actionsheet-cell-font-size        : $font-size-base !default;
+$actionsheet-cell-border-color     : $color-line-1 !default;
+$actionsheet-cell-border-width     : $line-1 !default;
+$actionsheet-cell-bg-color         : $color-white !default;
+$actionsheet-cell-bg-color-disabled: $color-white !default;
+$actionsheet-cell-bg-color-active  : $color-fill-4 !default;
+$actionsheet-action-margin         : $s-1*2 !default;
+
+#{$actionsheet-prefix}{
+  opacity:0;
+  &-mask{
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color:$actionsheet-mask-bg-color;
+  }
+  &-wrap{
+    position: fixed;
+    left: $actionsheet-wrap-margin;
+    right: $actionsheet-wrap-margin;
+    bottom: 0;
+    z-index: 1001;
+    background-color: $actionsheet-wrap-bg-color;
+    border-radius:$actionsheet-wrap-corner;
+    opacity:0;
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+    
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: -webkit-transform .3s;
+    transition: -webkit-transform .3s;
+    transition: transform .3s;
+    transition: transform .3s,-webkit-transform .3s;
+    
+  }
+  &-cell{
+    padding:$actionsheet-cell-padding;
+    background-color: $actionsheet-cell-bg-color;
+    text-align:center;
+    color:$actionsheet-cell-color;
+    font-size: $actionsheet-cell-font-size;
+    &--primary{
+      color:$actionsheet-cell-color-primary;
+    }
+    &--warn{
+      color:$actionsheet-cell-color-warning;
+    }
+    &--disabled{
+      color:$actionsheet-cell-color-disabled;
+      background-color:$actionsheet-cell-bg-color-disabled;
+    }
+    @include onePx($actionsheet-cell-border-color,top);
+    &:not(#{$actionsheet-prefix}-cell--disabled):active{
+      background-color:$actionsheet-cell-bg-color-active;
+    }
+    &:first-child{
+      border-top:none;
+      background-image:none;
+    }
+  }
+  
+  &-menu{
+    #{$actionsheet-prefix}-cell{
+      &:first-child{
+        border-radius:$actionsheet-cell-corner $actionsheet-cell-corner 0 0;
+      }
+      &:last-child{
+        border-radius:0 0 $actionsheet-cell-corner $actionsheet-cell-corner;
+      }
+    }
+  }
+  &-action{
+    margin-top:$actionsheet-action-margin;
+    margin-bottom:$actionsheet-wrap-margin;
+    #{$actionsheet-prefix}-cell{
+      border-radius:$actionsheet-cell-corner;
+    }
+  }
+  &--toggle{
+    opacity:1;
+    #{$actionsheet-prefix}-wrap{
+      opacity:1;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      
+    }
+  }
+}
+
+//动画
+.actionsheet-mask-enter,
+.actionsheet-mask-leave-active{
+  opacity: 0;
+}
+.actionsheet-mask-leave-active,
+.actionsheet-mask-enter-active{
+  -webkit-transition: opacity 300ms;
+  transition: opacity 300ms;
+}
+
+.actionsheet-enter,
+.actionsheet-leave-active{
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+}
+.actionsheet-leave-active,
+.actionsheet-enter-active{
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}

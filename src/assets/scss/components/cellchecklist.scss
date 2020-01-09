@@ -1,0 +1,98 @@
+
+@import "../variable.scss";
+@import "../mixin.scss";
+
+/* CellChecklist */
+$cellchecklist-prefix                      : '.' + $css-prefix + 'cellchecklist';
+$cellchecklist-hd-margin                   : $s-1*5 !default;
+$cellchecklist-circle-margin               : $s-1*5 !default;
+$cellchecklist-circle-size                 : $s-1*5 !default;
+$cellchecklist-circle-corner               : $corner-circle !default;
+$cellchecklist-circle-border-width         : $line-1 !default;
+$cellchecklist-circle-border-color         : $color-line-1 !default;
+$cellchecklist-circle-border-color-checked : $color-brand1 !default;
+$cellchecklist-circle-border-color-disabled: $color-line-4 !default;
+$cellchecklist-circle-color                : $color-transparent !default;
+$cellchecklist-circle-color-checked        : $color-white !default;
+$cellchecklist-circle-color-disabled       : $color-brand1-disabled !default;
+$cellchecklist-circle-bg-color             : $color-transparent !default;
+$cellchecklist-circle-bg-color-checked     : $color-brand1 !default;
+$cellchecklist-circle-bg-color-disabled    : $color-fill-4 !default;
+
+$cellchecklist-title-color:$color-text-1 !default;
+$cellchecklist-title-font-size:$font-size-l !default;
+$cellchecklist-desc-color:$color-text-2 !default;
+$cellchecklist-desc-font-size:$font-size-base !default;
+
+
+#{$cellchecklist-prefix}{
+    width:100%;
+    height:100%;
+    @include align-flex();
+    @include align-flex-middle();
+    &-hd{
+        margin-right:$cellchecklist-hd-margin;
+    }
+    &-bd{
+        flex:1;
+        text-align:left;
+    }
+    &-title{
+        color:$cellchecklist-title-color;
+        font-size:$cellchecklist-title-font-size;
+      }
+      &-desc{
+        color:$cellchecklist-desc-color;
+        font-size:$cellchecklist-desc-font-size;
+      }
+    &-inner{
+        display:block;
+        width:$cellchecklist-circle-size;
+        height:$cellchecklist-circle-size;
+        border:$cellchecklist-circle-border-width solid $cellchecklist-circle-border-color;
+        border-radius:$cellchecklist-circle-corner;
+        background-color:$cellchecklist-circle-bg-color;
+        color:$cellchecklist-circle-color;
+        @include align-flex();
+        @include align-flex-middle();
+        @include align-flex-center();
+        
+        &-icon{
+            opacity:0;
+        }
+    }
+    &-original{
+        position: absolute;
+        opacity:0;
+    }
+    &-ft{
+        
+    }
+    &--checked{
+        #{$cellchecklist-prefix}-inner{
+            border-color:$cellchecklist-circle-border-color-checked;
+            background-color:$cellchecklist-circle-bg-color-checked;
+            color:$cellchecklist-circle-color-checked;
+        }
+        #{$cellchecklist-prefix}-inner-icon{
+            opacity:1;
+        }
+    }
+    &--disabled{
+        #{$cellchecklist-prefix}-inner{
+            border-color:$cellchecklist-circle-border-color-disabled;
+            background-color:$cellchecklist-circle-bg-color-disabled;
+            color:$cellchecklist-circle-color-disabled;
+        }
+    }
+    &--labelleft{
+
+        flex-direction: row-reverse;
+
+        #{$cellchecklist-prefix}-hd{
+            margin-right:0;
+            margin-left:$cellchecklist-hd-margin;
+        }
+
+    }
+}
