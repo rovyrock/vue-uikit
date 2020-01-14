@@ -6,7 +6,7 @@
 export default {
   methods: {
     onClick (value) {
-      alert('Component B has value: ' + value)
+      alert('you click the button : ' + value)
     }
   }
 }

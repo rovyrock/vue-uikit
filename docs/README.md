@@ -10,5 +10,5 @@ actionLink: /introduction/guide
 #   details: 享受Vue + Webpack的开发经验，在markdown中使用Vue组件，并使用Vue开发自定义主题。
 # - title: 性能
 #   details: VuePress为每个页面生成预渲染的静态HTML，并在加载页面后作为但页面应用程序运行。
-footer: MIT Licensed | Copyright © 2019-present <WeGame UI开发组>
+footer: MIT Licensed | Copyright © 2019-present <rovyrock>
 ---

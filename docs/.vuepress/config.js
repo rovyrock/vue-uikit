@@ -8,7 +8,7 @@ module.exports = {
     nav: [
       { text: '首页', link: '/' },
       { text: '组件', link: '/components/' },
-      { text: 'Git', link: 'https://github.com/' },
+      { text: 'Github', link: 'https://github.com/rovyrock/vue-uikit' },
     ],
     sidebar: [
       {
