@@ -1,4 +1,5 @@
 import * as mweui from 'mweui'
+import '../../src/assets/css/index.css';
 // console.log(mweui)
 export default ({
   Vue, // the version of Vue being used in the VuePress app

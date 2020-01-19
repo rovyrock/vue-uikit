@@ -1,14 +1,21 @@
 {
-  "name": "my-lib",
+  "name": "mweui",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "build": "vue-cli-service build --report --target lib --name mweui ./src/index.js",
     "lint": "vue-cli-service lint",
     "docs:build": "vuepress build docs",
-    "docs:dev": "vuepress dev docs"
+    "docs:dev": "vuepress dev docs",
+    "watch-scss": "node-sass --source-map src/assets/scss/source-maps --watch -r src/assets/scss -o src/assets/css",
+    "build-scss": "node-sass --output-style expanded --source-map dist/assets/css/ src/assets/scss/index.scss dist/assets/css/mweui.css",
+    "build-scss-minify": "node-sass --output-style compressed --source-map dist/assets/css/ src/assets/scss/index.scss dist/assets/css/mweui.min.css",
+    "build-autoprefix": "postcss --use autoprefixer -c postcss.json dist/assets/css/*.css -d dist/assets/css/",
+    "copy-assets": "node ./scripts/copyAssets.js",
+    "compile-assets": "npm run copy-assets && npm run build-scss && npm run build-scss-minify && npm run build-autoprefix",
+    "compile": "npm run build && npm run compile-assets"
   },
-  "main": "dist/my-lib.umd.min.js",
+  "main": "dist/mweui.umd.min.js",
   "files": [
     "src",
     "dist/*.{js,css}"
@@ -30,6 +37,10 @@
     "node-sass": "^4.13.0",
     "sass-loader": "^8.0.0",
     "vue-template-compiler": "^2.6.11",
-    "vuepress": "^1.2.0"
+    "vuepress": "^1.2.0",
+    "glob": "^7.1.6",
+    "postcss-cli": "^4.1.0",
+    "rimraf": "^2.6.1",
+    "autoprefixer": "^7.1.1"
   }
 }

@@ -12,10 +12,6 @@ design tokens：配色参数
 /* Corner */
 /* Line */
 /* Global */
-/***********************
-模块参数：关联design token
-************************/
-/* Icon */
 /**
 * @desc 列表是否存在
 */
@@ -102,7 +98,7 @@ design tokens：配色参数
     .mwe-radio--disabled .mwe-radio-original, .mwe-radio.disabled .mwe-radio-original {
       cursor: not-allowed; }
     .mwe-radio--disabled .mwe-radio-inner, .mwe-radio.disabled .mwe-radio-inner {
-      border-color: #ececec;
+      border-color: #e6e7eb;
       background-color: #f7f7f7; }
       .mwe-radio--disabled .mwe-radio-inner::after, .mwe-radio.disabled .mwe-radio-inner::after {
         background-color: #d2d2d2; }

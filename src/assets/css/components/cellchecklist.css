@@ -12,10 +12,6 @@ design tokens：配色参数
 /* Corner */
 /* Line */
 /* Global */
-/***********************
-模块参数：关联design token
-************************/
-/* Icon */
 /**
 * @desc 列表是否存在
 */
@@ -109,7 +105,7 @@ design tokens：配色参数
   .mwe-cellchecklist--checked .mwe-cellchecklist-inner-icon {
     opacity: 1; }
   .mwe-cellchecklist--disabled .mwe-cellchecklist-inner {
-    border-color: #ececec;
+    border-color: #e6e7eb;
     background-color: #f7f7f7;
     color: #a3e0ff; }
   .mwe-cellchecklist--labelleft {
